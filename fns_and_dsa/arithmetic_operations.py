@@ -2,7 +2,7 @@ def perform_operation(num1, num2, operation):
     match operation:
         case "add":
             result = num1 + num2
-        case "substract":
+        case "subtract":
             result = num1 - num2
         case "multiply":
             result = num1 * num2
