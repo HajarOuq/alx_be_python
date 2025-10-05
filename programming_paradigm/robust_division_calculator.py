@@ -12,7 +12,7 @@ def safe_divide(numerator, denominator):
         except ZeroDivisionError:
             return "Error: Cannot divide by zero."
     except ValueError:
-        return "Error: Both inputs must be numeric values."
+        return "Error: Please enter numeric values only."
 
 import sys
 from robust_division_calculator import safe_divide
