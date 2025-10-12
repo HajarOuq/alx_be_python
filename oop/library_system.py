@@ -6,18 +6,18 @@ class Book:
 
     def __str__(self):
         """Return a string representation of the Book."""
-        return f"'{self.title}' by {self.author}"
+        return f"Book: {self.title} by {self.author}"
 
 
 class EBook(Book):
     def __init__(self, title, author, file_size):
         """Initialize an EBook, calling the parent constructor."""
         super().__init__(title, author)
-        self.file_size = file_size  # in MB
+        self.file_size = file_size  # in KB
 
     def __str__(self):
         """Return a string representation specific to EBooks."""
-        return f"E-Book: '{self.title}' by {self.author} [{self.file_size}MB]"
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
 
 class PrintBook(Book):
@@ -28,7 +28,7 @@ class PrintBook(Book):
 
     def __str__(self):
         """Return a string representation specific to PrintBooks."""
-        return f"Print Book: '{self.title}' by {self.author} ({self.page_count} pages)"
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
 
 class Library:
@@ -40,17 +40,12 @@ class Library:
         """Add a Book (Book, EBook, or PrintBook) to the library."""
         if isinstance(book, Book):
             self.books.append(book)
-        else:
-            print("Only Book instances can be added to the library.")
 
     def list_books(self):
         """List all books in the library."""
-        if not self.books:
-            print("The library is empty.")
-        else:
-            print("Books in the library:")
-            for book in self.books:
-                print(f" - {book}")
+        for book in self.books:
+            print(book)
+
 
 from library_system import Book, EBook, PrintBook, Library
 
